@@ -1,0 +1,87 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Roboto, "sans-serif";
+}
+#meu_carrinho{
+	position: absolute;
+	right: -1%;
+	width: 100px;
+	height: 100%;
+	background-color:#32ae32;
+}
+#meu_carrinho span{
+	display: flex;
+	color: white;
+	font-size: 50px;
+	justify-content: center;
+}
+
+/*Cards*/
+.card{
+	background-color: whitesmoke;
+	padding: 0px;
+	position: relative!important;
+	margin-left: 10px; 
+	margin-top:10px;
+	/*top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);*/
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+	display: block!important;
+	float: left;
+	width: 200px;
+	height: 250px;
+
+}
+.top img{
+}
+.bottom{
+	height: 100px;
+	border-radius: 0px 0px 10% 10%;
+	
+}
+.bottom a, #titulo{
+	    display: flex;
+    	justify-content: center;
+}
+/*.bottom a{
+	position: relative;
+	background-color: #32ae32;
+	font-weight: 800;
+	width: 80%;
+	padding: 5px;
+	color: white;
+	border-radius: 20px;
+	left: 10%;
+}
+
+.bottom a:hover{
+	background-color: white;
+	color: #32ae32;
+	border: 3px solid #32ae32;
+}*/
+
+.bottom a{
+	position: relative;
+    left: 40%;
+    top: -23px;
+    border-radius: 0px 0px 5px 0px;
+    width: 60%;
+    color: white !important;
+    padding: 5px;
+    background-color: #32ae32;
+}
+.bottom a:hover{
+	background-color: #fff;
+	top: -25px;
+	border: 1px solid #32ae32;
+	color: #32ae32!important;
+}
+.bottom #preco{
+	position: relative;
+	font-size: 15px;
+    right: -4px;
+    top: 6px;
+}
