@@ -20,16 +20,18 @@ if (isset($_GET['id'])) {
 			if ($stmt_l->rowCount() > 0) {
 				 	while ($itens = $stmt_l->fetch(PDO::FETCH_ASSOC)) {
 				 	 $cod = $itens['id'];
-					 $nome = $itens['nome'];
-					 $preco = $itens['preco'];
+					 $name = $itens['nome'];
+					 $price = $itens['preco'];
+					 $img = $itens['img'];
 				 		
 				 	}
 			}
 
 	$product = new Product();
 	$product->setId($cod);
-	$product->setName($nome);
-	$product->setPrice($preco);
+	$product->setName($name);
+	$product->setPrice($price);
+	$product->setImg($img);
 	$product->setQuantity(1);
 
 
@@ -103,7 +105,12 @@ if (isset($_GET['id'])) {
 <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)):?>
 
 	<?php
-	 
+	$_SESSION['id'] = $row['id'];
+	$_SESSION['nome'] = $row['nome'] ; 
+	$_SESSION['img'] = $row['img']; 
+	$_SESSION['preco'] = $row['preco']; 
+	
+
 
 	 ?>
 	<div class="card">

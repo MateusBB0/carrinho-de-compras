@@ -5,6 +5,7 @@ class Product{
 	private $name;
 	private $price;
 	private $quantity;
+	private $img;
 
 // Setters
 // public function __construct(int $id, string $name, int $price, int $quantity){
@@ -32,6 +33,10 @@ public function setQuantity($quantity){
 		$this->quantity = $quantity;
 
 }
+public function setImg($img){
+		$this->img = $img;
+
+}
 
 // Getters
 public function getId(){
@@ -48,6 +53,9 @@ public function getPrice(){
 
 public function getQuantity(){
 	return $this->quantity;
+}
+public function getImg(){
+	return $this->img;
 }
 
 	 }
