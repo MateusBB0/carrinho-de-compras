@@ -25,10 +25,14 @@ if (isset($_GET['id'])) {
  	<title>Meu carrinho</title>
  	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wght@500&display=swap" rel="stylesheet">
  	<link rel="stylesheet" href="css/css.css">
+
+ 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
  </head>
  <body>
  	 <a href="index.php">Voltar</a>
- 	
+
+ 	<section>
  		<?php if (count($productsInCart) <= 0)  :?>
  			Nenhum produto no carrinho
  		<?php endif; ?>
@@ -38,28 +42,33 @@ if (isset($_GET['id'])) {
 	 	<div class="top">
 	 		<img src="<?php echo $product->getImg();?>" alt="" width="100%" height="150px" title="camisa">
 	 	</div>
-	 	<div class="bottom">
+	 	<div class="bottom_compra">
 	 		<hr>
 	 	<span id="titulo">
 
 	 	<strong><?php echo $product->getName() ;?></strong>	
 	 	</span>
 	 	<br>
-	 	<div class="button">
-	 		<a href=" ?id=<?php echo $row['id']; ?> " >Adicionar<ion-icon name="cart-outline"></ion-icon ></a>
+	 	<div class="btn-group d-flex justify-content-center" >
 
-	 		<span id="preco">Subtotal: <br> R$<?php echo number_format($product->getPrice() * $product->getQuantity(), 2,',', '.'); ?></span>
+	 		<a href=" ?id=<?php echo $row['id']; ?> " class="btn btn-success btn-lg p-1">+</a>
+
+		<input class="p-2" type="button" value="<?php echo $product->getQuantity(); ?>" >
 	 		
-	 		<a href="?id=<?php echo $product->getId();?>">remove</a>
+	 		
+	 		<a href="?id=<?php echo $product->getId();?>"class="btn btn-success btn-lg p-1">-</a>
+	
+
 	 	</div>
+	 	<span class="d-flex justify-content-center"> R$<?php echo number_format($product->getPrice() * $product->getQuantity(), 2,',', '.'); ?></span>
 	 </div>
 		</div>
  		
- 			
  		
-
 	 	<?php endforeach;?>
-	 	<li>Total: R$ <?php echo number_format($cart->getTotal(), 2,',','.'); ?> </li>
+</section>
+
+	 	<p>Total: R$ <?php echo number_format($cart->getTotal(), 2,',','.'); ?> </p>
 	 
  </body>
  </html>
