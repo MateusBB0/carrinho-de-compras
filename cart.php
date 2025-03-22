@@ -60,8 +60,22 @@ class Cart{
 					}
 
 					$_SESSION['cart']['total'] -= $product->getPrice();
-				// 	unset($_SESSION['cart']['products'][$index]);
-				// $_SESSION['cart']['total']-= $product->getPrice() * $product->getQuantity();
+				
+				}
+			}
+		}
+}
+// Adicionando mais do que um item igual dentro da página meucarrinho.php
+public function additionQtd(int $id){
+		if (isset($_SESSION['cart']['products'])) {
+		foreach ($this->getCart() as $index =>$product) {
+
+			if ($product->getId() === $id) {
+				$product->setQuantity($product->getQuantity() + 1);
+
+
+				$_SESSION['cart']['total'] += $product->getPrice();
+				
 				}
 			}
 		}
@@ -74,5 +88,8 @@ public function getCart(){
 public function getTotal(){
 	return $_SESSION['cart']['total'] ?? 0;
 }
+
 }
+
+
  ?>

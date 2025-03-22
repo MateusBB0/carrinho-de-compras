@@ -1,4 +1,5 @@
 <?php 
+require "conexao.php";
 require "produto.php";
 require "cart.php"; 
 
@@ -8,13 +9,12 @@ session_start();
 $cart = new Cart();
 $productsInCart = $cart->getCart();
 
-// var_dump($productsInCart);
-
-if (isset($_GET['id'])) {
-	$id = strip_tags($_GET['id']);
+if (isset($_REQUEST['id'])) {
+	$id = strip_tags($_REQUEST['id']);
 	$cart->remove($id);
 	header('Location: meucarrinho.php');
 }
+
 
  ?>
  <!DOCTYPE html>
@@ -49,14 +49,13 @@ if (isset($_GET['id'])) {
 	 	<strong><?php echo $product->getName() ;?></strong>	
 	 	</span>
 	 	<br>
-	 	<div class="btn-group d-flex justify-content-center" >
+	 	<div class="btn-group d-flex justify-content-center" style="width:60%; position: relative; left: 20%;">
 
-	 		<a href=" ?id=<?php echo $row['id']; ?> " class="btn btn-success btn-lg p-1">+</a>
+	 	<a href="adicionando_itens.php?id=<?php echo $product->getId(); ?>"class="btn btn-success btn-lg p-1">+</a>
 
-		<input class="p-2" type="button" value="<?php echo $product->getQuantity(); ?>" >
+		<input class="p-2" type="button" value="<?php echo $product->getQuantity(); ?>" >	 		
 	 		
-	 		
-	 		<a href="?id=<?php echo $product->getId();?>"class="btn btn-success btn-lg p-1">-</a>
+	 	<a href="?id=<?php echo $product->getId(); ?>"class="btn btn-success btn-lg p-1">-</a>
 	
 
 	 	</div>
@@ -67,8 +66,9 @@ if (isset($_GET['id'])) {
  		
 	 	<?php endforeach;?>
 </section>
-
-	 	<p>Total: R$ <?php echo number_format($cart->getTotal(), 2,',','.'); ?> </p>
+	<br>
+	 	<span class="btn btn-light font-weight-bold"><p>Total: R$ <?php echo number_format($cart->getTotal(), 2,',','.'); ?> <button type="button" class="badge btn btn-success">Continuar</button></p>
+</span>
 	 
  </body>
  </html>

@@ -138,7 +138,6 @@ if (isset($_GET['id'])) {
 
 	
 </Section>
-	<a href="meucarrinho.php" ></a>
 
 
 </body>
