@@ -2,7 +2,7 @@
 require 'conexao.php';
 require "produto.php";
 require "cart.php";
-
+session_start();
 
 $cart = new Cart();
 $productsInCart = $cart->getCart();
