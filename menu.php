@@ -34,15 +34,38 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Celulares</a>
         </li>
-    </ul>
+        <li class="nav-item"><a href="user/login.php" class="nav-link">Login</a></li>
+    </ul>  
+    <?php 
+    		echo'
+    		<!-- Example split danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only"></span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#" style="background-color:black;">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>';
+
+     ?>
     </div>
-    <div id="meu_carrinho"> 
+
+  
+
+
+    <!-- <div id="meu_carrinho"> 
     	<a href="meucarrinho.php" style="text-decoration: none;" title="Meu carrinho">
     <span class="material-symbols-outlined">
 		shopping_cart
 		</span>
 	</a>
-		</div>
+		</div> -->
 </div>
 	</nav>
 </header>

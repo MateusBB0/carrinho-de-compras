@@ -12,7 +12,7 @@ display: flex;
 	right: -1%;
 	width: 100px;
 	height: 100%;
-	background-color:#32ae32;
+	background-color: #198754;
 }
 #meu_carrinho span{
 	display: flex;
@@ -22,7 +22,7 @@ display: flex;
 }
 
 /*Cards*/
-.card{
+.card_compra{
 	background-color: whitesmoke;
 	padding: 0px;
 	position: relative!important;
@@ -74,7 +74,7 @@ display: flex;
     width: 60%;
     color: white !important;
     padding: 5px;
-    background-color: #32ae32;
+	background-color: #198754;
 }
 .bottom a:hover{
 	background-color: #fff;

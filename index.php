@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
 			if ($stmt_l->rowCount() > 0) {
 				 	while ($itens = $stmt_l->fetch(PDO::FETCH_ASSOC)) {
 				 	 $cod = $itens['id'];
-					 $name = $itens['nome'];
+					 $name = $itens['nome_produto'];
 					 $price = $itens['preco'];
 					 $img = $itens['img'];
 				 		
@@ -52,6 +52,7 @@ if (isset($_GET['id'])) {
 
 <h2>Produtos</h2>
 
+<?php echo $_SESSION['nome']; ?>
 
 <?php if (isset($id)): ?>
 <div class='alert alert-success' id="msg">Adicionado ao seu carrinho</div>
@@ -65,14 +66,14 @@ if (isset($_GET['id'])) {
 
 	<?php
 	$_SESSION['id'] = $row['id'];
-	$_SESSION['nome'] = $row['nome'] ; 
+	$_SESSION['nome_produto'] = $row['nome_produto'] ; 
 	$_SESSION['img'] = $row['img']; 
 	$_SESSION['preco'] = $row['preco']; 
 	
 
 
 	 ?>
-	<div class="card">
+	<div class="card_compra card">
 	 	<div class="top">
 	 		<img src="<?php echo $row['img'];?>" alt="" width="100%" height="150px" title="camisa">
 	 	</div>
@@ -80,7 +81,7 @@ if (isset($_GET['id'])) {
 	 		<hr>
 	 	<span id="titulo">
 
-	 	<strong><?php echo $row['nome']; ?></strong>	
+	 	<strong><?php echo $row['nome_produto']; ?></strong>	
 	 	</span>
 	 	<br>
 	 	<div class="button">
