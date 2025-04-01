@@ -10,13 +10,13 @@ if (isset($_POST['submit'])) {
 	$nome = $_POST['nome'];
 	$senha = $_POST['senha'];
 	$email = $_POST['email'];
-	$id = $_SESSION['id'];
+	$id = $_SESSION['id_user'];
 
 class MudarDados extends Usuario{
 
 	public function update(Usuario $u){
 		global $id, $conexao;
-		$sql = "UPDATE usuario SET nome = ?, senha = ?, email = ? WHERE id = $id";
+		$sql = "UPDATE usuario SET nome = ?, senha = ?, email = ? WHERE id_user = $id";
 		$stmt =$conexao->__construct()->prepare($sql);
 		$stmt->bindValue(1, $u->getNome());
 		$stmt->bindValue(2, $u->getSenha());
@@ -24,7 +24,7 @@ class MudarDados extends Usuario{
 		$stmt->execute();
 
 		echo "Dados modificados com sucesso!<br>";
-		echo"<a href='leitura_de_dados.php?id={$id}'>Voltar</a>";
+		echo"<a href='leitura_de_dados.php?id_user={$id}'>Voltar</a>";
 	}
 
 }
@@ -40,7 +40,7 @@ class MudarDados extends Usuario{
 
 }else{
 	echo "ERRO";
-	echo "<a href='index.php?id=$id'>Voltar</a><br><br>";
+	echo "<a href='index.php?id_user=$id'>Voltar</a><br><br>";
 	echo "<a href='sair.php'>sair</a><br><br>";
 }
 

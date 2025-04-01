@@ -1,8 +1,8 @@
 <?php
 session_start();
-$id = $_GET['id'];
+$id = $_GET['id_user'];
 
-$_SESSION['id']= $id;
+$_SESSION['id_user']= $id;
 
 $nome = $_SESSION['nome'];
 $senha = $_SESSION['senha'];
@@ -31,7 +31,7 @@ $email = $_SESSION['email'];
 		<label for="">Email: <input type="email" name="email"  value="<?php echo $email;?>"required></label>
 
 		<label for=""><input type="submit" name="submit"></label><br>
-		<a href="<?php echo'leitura_de_dados.php?id="'.$id.'"';?>">Voltar</a><br><br>
+		<a href="<?php echo'leitura_de_dados.php?id_user="'.$id.'"';?>">Voltar</a><br><br>
 	</form>
 	
 </body>

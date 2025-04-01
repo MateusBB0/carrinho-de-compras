@@ -52,7 +52,7 @@ if (isset($_GET['id'])) {
 
 <h2>Produtos</h2>
 
-<?php echo $_SESSION['nome']; ?>
+<?php // echo $_SESSION['nome']; ?>
 
 <?php if (isset($id)): ?>
 <div class='alert alert-success' id="msg">Adicionado ao seu carrinho</div>
@@ -108,6 +108,5 @@ if (isset($_GET['id'])) {
 }, 500);
 	
 </script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </html>

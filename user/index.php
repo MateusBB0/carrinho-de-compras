@@ -29,6 +29,8 @@
 </style>
 <body>
 	<div class="card card_user" >
+		<div class="img_user"> <img src="../img/user_image.png" alt="" width="70px" height="70px">
+		</div>
 			<div class="card-body">
 				<div class="card-title">
 	<h2><span class="material-symbols-outlined" style="color: white;">shopping_cart</span>Cadastro <a href="../index.php" class="btn btn-primary" style="float: right;">Voltar</a></h2>

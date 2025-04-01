@@ -2,7 +2,7 @@
 session_start();
 require "../conexao.php";
 require "dados_user.php";
-if (isset($_POST['submit']) || isset($_GET['id'])) {
+if (isset($_POST['submit']) || isset($_GET['id_user'])) {
 	// Pegar o nome e a senha do usuário via login ou voltando para a página de dados
 	$nome = isset($_POST['nome']) ? $_POST['nome'] : $_SESSION['nome'];
 	$senha = isset($_POST['senha']) ? $_POST['senha'] : $_SESSION['senha'];
@@ -21,8 +21,8 @@ class Login extends Usuario{
 				$sql = "SELECT * FROM usuario WHERE nome = '".$nome."' AND senha = '".$senha."' ";
 			}else{
 				// Se o usuário voltou para a página
-				$id = $_SESSION['id'];
-				$sql = "SELECT * FROM usuario WHERE id = '".$id."' ";
+				$id = $_SESSION['id_user'];
+				$sql = "SELECT * FROM usuario WHERE id_user = '".$id."' ";
 			 }
 
 			$stmt = $conexao->__construct()->prepare($sql);
@@ -31,18 +31,18 @@ class Login extends Usuario{
 
 		if ($stmt->rowCount() > 0) {
 		        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-		        	echo $row['id']. "<br>";
+		        	echo $row['id_user']. "<br>";
 		        	echo $row['nome']. "<br>";
 		        	echo $row['senha']. "<br>";
 		        	echo $row['email']. "<br><br>";
 		 		echo "<a href='../index.php'>Página Pricipal</a><br><br>";
 		 		echo "<a href='sair.php'>Sair</a><br><br>";
 
-				echo "<a href='editar_dados.php?id=". $row['id']."  '>Editar</a><br><br>";
-				echo "<a href='deletar.php?id=".$row['id']."' style= 'color:red;'>Excluir</a><br><br>";
+				echo "<a href='editar_dados.php?id_user=". $row['id_user']."  '>Editar</a><br><br>";
+				echo "<a href='deletar.php?id=".$row['id_user']."' style= 'color:red;'>Excluir</a><br><br>";
 
 				// Pegar os valores do row e igualá-los às sessions
-				$_SESSION['id'] = $row['id']; 
+				$_SESSION['id_user'] = $row['id_user']; 
 				$_SESSION['nome'] = $row['nome'];	
  				$_SESSION['senha'] = $row['senha'];
 				$_SESSION['email'] = $row['email'];

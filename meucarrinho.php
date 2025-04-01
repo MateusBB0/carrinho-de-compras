@@ -32,7 +32,7 @@ if (isset($_REQUEST['id'])) {
  		<?php endif; ?>
  		<?php foreach ($productsInCart as $product): ?>
 
- 			<div class="card">
+ 			<div class="card" style="margin-left: 10px;margin-top:10px;width: 160px;">
 	 	<div class="top">
 	 		<img src="<?php echo $product->getImg();?>" alt="" width="100%" height="150px" title="camisa">
 	 	</div>

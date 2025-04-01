@@ -10,7 +10,7 @@ $senha = $_POST['senha'];
 $email = $_POST['email'];
 
 // dados de sessões
-	$_SESSION['id'] = $id;
+	$_SESSION['id_user'] = $id;
 	$_SESSION['nome'] = $nome;
 	$_SESSION['senha'] = $senha;
 	$_SESSION['email'] = $email;
