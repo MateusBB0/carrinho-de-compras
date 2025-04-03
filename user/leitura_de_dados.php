@@ -4,6 +4,7 @@ require "../conexao.php";
 require "dados_user.php";
 if (isset($_POST['submit']) || isset($_GET['id_user'])) {
 	// Pegar o nome e a senha do usuário via login ou voltando para a página de dados
+	error_reporting(0);
 	$nome = isset($_POST['nome']) ? $_POST['nome'] : $_SESSION['nome'];
 	$senha = isset($_POST['senha']) ? $_POST['senha'] : $_SESSION['senha'];
 
@@ -21,6 +22,7 @@ class Login extends Usuario{
 				$sql = "SELECT * FROM usuario WHERE nome = '".$nome."' AND senha = '".$senha."' ";
 			}else{
 				// Se o usuário voltou para a página
+				error_reporting(0);
 				$id = $_SESSION['id_user'];
 				$sql = "SELECT * FROM usuario WHERE id_user = '".$id."' ";
 			 }
@@ -42,6 +44,8 @@ class Login extends Usuario{
 				echo "<a href='deletar.php?id=".$row['id_user']."' style= 'color:red;'>Excluir</a><br><br>";
 
 				// Pegar os valores do row e igualá-los às sessions
+
+
 				$_SESSION['id_user'] = $row['id_user']; 
 				$_SESSION['nome'] = $row['nome'];	
  				$_SESSION['senha'] = $row['senha'];
@@ -49,9 +53,15 @@ class Login extends Usuario{
  				
  					}
 			}else{
-				echo "Dados inválidos ou inexistentes <br><br>";
-				echo "<a href='login.php'>Voltar</a><br><br>";
-		 		echo "<a href='sair.php'>sair</a><br><br>";
+
+				include "../menu.php";
+				echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+ 			<center>Dados inválidos ou inexistentes</center>
+					</div> <br><br>
+';
+				echo "	<div style='display:flex;justify-content: space-around;align-items: center;'>				<a href='login.php' class='btn btn-primary' style='font-size:20px;'>Voltar</a><br><br>";
+		 		echo "<a href='sair.php' class='btn btn-success' style='font-size:20px;'><ion-icon name='log-out-outline' 'style=width:10px;'></ion-icon>Sair </a><br><br>	
+		 				</div>";
 
 			}
 
@@ -66,5 +76,5 @@ class Login extends Usuario{
  
 
 } else{
-	echo "Erro";
+	echo "Usuário não está logado";
 }

@@ -25,6 +25,8 @@ if (isset($_GET['id'])) {
 					 $img = $itens['img'];
 				 		
 				 	}
+
+
 			}
 
 	$product = new Product();

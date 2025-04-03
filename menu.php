@@ -43,20 +43,21 @@
   </a>
 
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Dados</a></li>
+    <li><a class="dropdown-item" href="user/leitura_de_dados.php?id_user=<?php echo $_SESSION['id']; error_reporting(0);
+ ?>">Dados</a></li>
     <li><a class="dropdown-item" href="meucarrinho.php">Carrinho <span class="material-symbols-outlined">
     shopping_cart
     </span></a></li>
     <li>
-      <a class="dropdown-item" href="#">Sair <ion-icon name="close-circle" style='color: black !important;'></ion-icon>
+      <a class="dropdown-item" href="user/sair.php">Sair <ion-icon name="close-circle" style='color: black !important;'></ion-icon>
   </a></li>
   </ul>
 </div>
+
 </div>
 
+</div>
      
-    </div>
-
 	</nav>
 </header>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
