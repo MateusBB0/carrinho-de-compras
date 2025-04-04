@@ -11,7 +11,11 @@ session_start();
 
  
 // Pegar o o id quando clicar no botão "add" e pegar seus dados e mandá-los ao meucarrinho.php
-if (isset($_GET['id'])) {
+	if (isset($_GET['id']) ) {
+if (isset($_SESSION['id_user']) ) {
+
+
+
 		$id = strip_tags($_GET['id']);
 			$sql_id = "SELECT * FROM produtos WHERE id = '".$id."' " ;
 			$stmt_l = $conexao->__construct()->prepare($sql_id);
@@ -26,10 +30,12 @@ if (isset($_GET['id'])) {
 				 		
 				 	}
 
-
-			}
+					}
+				
+			
 
 	$product = new Product();
+	error_reporting(0);
 	$product->setId($cod);
 	$product->setName($name);
 	$product->setPrice($price);
@@ -39,10 +45,13 @@ if (isset($_GET['id'])) {
 
 	 $cart = new Cart();
 	 $cart->add($product);
-
-}
-
-
+}else{
+	echo 
+	'<div class="alert alert-warning" role="alert" id="msg">
+  Cadastre-se antes de colocar as compras no carrinho!!
+	</div>';
+	}
+		}
 
  ?>
 <!DOCTYPE html>
@@ -75,6 +84,7 @@ if (isset($_GET['id'])) {
 
 
 	 ?>
+
 	<div class="card_compra card">
 	 	<div class="top">
 	 		<img src="<?php echo $row['img'];?>" alt="" width="100%" height="150px" title="camisa">
@@ -89,7 +99,13 @@ if (isset($_GET['id'])) {
 	 	<div class="button">
 	 		<span id="preco">R$<?php echo number_format($row['preco'], 2,',','.'); ?></span>
 	 		
-	 		<a href=" ?id=<?php echo $row['id']; ?> " >Adicionar<ion-icon name="cart-outline"></ion-icon ></a>
+	 		<a href=" ?id=<?php 
+	 		if (isset($_SESSION['id_user'])){
+	 		
+	 		 echo $row['id'];
+	 		} 
+	 		?>" 
+	 		 >Adicionar<ion-icon name="cart-outline"></ion-icon ></a>
 	 	</div>
 	 </div>
 	</div>

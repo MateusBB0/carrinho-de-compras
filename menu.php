@@ -36,7 +36,10 @@
           <a class="nav-link" href="#">Celulares</a>
         </li>
         <li class="nav-item"><a href="user/login.php" class="nav-link">Login</a></li>
-    </ul>  
+    </ul>
+    <?php if (isset($_SESSION['id_user'])): ?>
+      
+    
     <div class="dropdown">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Usuário
@@ -53,7 +56,7 @@
   </a></li>
   </ul>
 </div>
-
+<?php endif ?>
 </div>
 
 </div>

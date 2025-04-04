@@ -4,8 +4,6 @@ require "produto.php";
 require "cart.php"; 
 
 session_start();
-
-
 $cart = new Cart();
 $productsInCart = $cart->getCart();
 
@@ -14,9 +12,12 @@ if (isset($_REQUEST['id'])) {
 	$cart->remove($id);
 	header('Location: meucarrinho.php');
 }
-
+	
 
  ?>
+ <?php if (isset($_SESSION['id_user'])): ?>
+ 	
+
  <!DOCTYPE html>
  <html lang="en">
  <head>
@@ -66,3 +67,4 @@ if (isset($_REQUEST['id'])) {
 	 
  </body>
  </html>
+  <?php endif ?>
