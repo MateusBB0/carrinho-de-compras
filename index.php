@@ -45,6 +45,7 @@ if (isset($_SESSION['id_user']) ) {
 
 	 $cart = new Cart();
 	 $cart->add($product);
+	 $cart->AddCartDataBase($cod, $_SESSION['user']);
 }else{
 	echo 
 	'<div class="alert alert-warning" role="alert" id="msg">
@@ -61,7 +62,7 @@ if (isset($_SESSION['id_user']) ) {
 <?php include "menu.php"; ?>
 
 
-<h2>Produtos</h2>
+<center><h2>Produtos</h2></center>
 
 <?php // echo $_SESSION['nome']; ?>
 
@@ -87,18 +88,19 @@ if (isset($_SESSION['id_user']) ) {
 
 	<div class="card_compra card">
 	 	<div class="top">
-	 		<img src="<?php echo $row['img'];?>" alt="" width="100%" height="150px" title="camisa">
+	 		<img src="<?php echo $row['img'];?>" alt="" width="100%" height="150px" title="camisa" class='card-img-top'>
 	 	</div>
 	 	<div class="bottom">
 	 		<hr>
-	 	<span id="titulo">
+	 	<span id="titulo" class="card-title">
+<?php echo $row['nome_produto']; ?>
 
-	 	<strong><?php echo $row['nome_produto']; ?></strong>	
 	 	</span>
-	 	<br>
+	
+
 	 	<div class="button">
 	 		<span id="preco">R$<?php echo number_format($row['preco'], 2,',','.'); ?></span>
-	 		
+	 		<div id='add_btn'>
 	 		<a href=" ?id=<?php 
 	 		if (isset($_SESSION['id_user'])){
 	 		
@@ -106,7 +108,9 @@ if (isset($_SESSION['id_user']) ) {
 	 		} 
 	 		?>" 
 	 		 >Adicionar<ion-icon name="cart-outline"></ion-icon ></a>
+	 		</div>
 	 	</div>
+
 	 </div>
 	</div>
 

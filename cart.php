@@ -9,6 +9,26 @@ class Cart{
 			];
 		}
 	}
+	public function AddCartDataBase($id_product, $userId)
+	{
+		global $conexao, $_SESSION['nome'];
+		$userId = $_SESSION['id_user'];
+
+		if (isset($userId)) {
+
+			$stmt = $conexao->__construct()->prepare("INSERT INTO carrinho(id_user, id_produto,nome_produto, nome_usuario quantidade, total) VALUES(?, ?, ?, ?)");
+ 			 foreach ($_SESSION['cart']['products'] as $product) {
+        	$stmt->execute([
+            $userId,
+            $product->getId(),
+            $product->getName(),
+            $_SESSION['nome'],
+            $product->getQuantity(),
+            $product->getPrice() * $product->getQuantity()
+        ]);
+    }
+		}
+	}
 
 	public function add(Product $product){
 
@@ -29,7 +49,6 @@ class Cart{
 
 
 				}
-
 
 		}
 

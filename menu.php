@@ -19,8 +19,8 @@
 	<header>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 <div class="container-fluid">
-		<a href="index.php" class="navbar-brand">
-			<span class="material-symbols-outlined" style="color: white;">shopping_cart</span>Carrinho</a>
+		<a href="index.php" class="navbar-brand"style="display: flex; align-items: center;">
+			<span class="material-symbols-outlined" style="color: #188452 ;">shopping_cart</span>CartON</a>
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -41,8 +41,8 @@
       
     
     <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Usuário
+  <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="a">
+    <?php echo $_SESSION['nome']; ?>
   </a>
 
   <ul class="dropdown-menu">
