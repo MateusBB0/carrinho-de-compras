@@ -43,9 +43,10 @@ if (isset($_SESSION['id_user']) ) {
 	$product->setQuantity(1);
 
 
-	 $cart = new Cart();
-	 $cart->add($product);
-	 $cart->AddCartDataBase($cod, $_SESSION['user']);
+	$cart = new Cart();
+	$cart->add($product);
+	$cart->AddCartDataBase($product->setId($cod), $_SESSION['id_user']);
+
 }else{
 	echo 
 	'<div class="alert alert-warning" role="alert" id="msg">
@@ -101,10 +102,10 @@ if (isset($_SESSION['id_user']) ) {
 	 	<div class="button">
 	 		<span id="preco">R$<?php echo number_format($row['preco'], 2,',','.'); ?></span>
 	 		<div id='add_btn'>
-	 		<a href=" ?id=<?php 
+	 		<a href="?id=<?php 
 	 		if (isset($_SESSION['id_user'])){
 	 		
-	 		 echo $row['id'];
+	 		 echo($row['id']);
 	 		} 
 	 		?>" 
 	 		 >Adicionar<ion-icon name="cart-outline"></ion-icon ></a>

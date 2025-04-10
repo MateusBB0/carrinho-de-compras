@@ -9,25 +9,30 @@ class Cart{
 			];
 		}
 	}
-	public function AddCartDataBase($id_product, $userId)
-	{
-		global $conexao, $_SESSION['nome'];
+	public function AddCartDataBase($id_product, $userId){
+		if (!isset($_SESSION['cart']['products']) || empty($_SESSION['cart']['products'])) {
+        return;
+    }
+		global $conexao;
 		$userId = $_SESSION['id_user'];
 
 		if (isset($userId)) {
 
-			$stmt = $conexao->__construct()->prepare("INSERT INTO carrinho(id_user, id_produto,nome_produto, nome_usuario quantidade, total) VALUES(?, ?, ?, ?)");
+			$stmt = $conexao->__construct()->prepare("INSERT INTO carrinho(id_user, id_produto,nome_produto, quantidade, total) VALUES(?, ?, ?, ?, ?)");
+
  			 foreach ($_SESSION['cart']['products'] as $product) {
         	$stmt->execute([
             $userId,
             $product->getId(),
             $product->getName(),
-            $_SESSION['nome'],
             $product->getQuantity(),
-            $product->getPrice() * $product->getQuantity()
-        ]);
-    }
+            $product->getPrice() * $product->getQuantity()]);
+    			}
 		}
+	}
+
+	public function RemoveQtdDataBase(){
+		
 	}
 
 	public function add(Product $product){

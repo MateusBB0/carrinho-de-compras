@@ -56,6 +56,8 @@
   </a></li>
   </ul>
 </div>
+<?php else: ?>
+  
 <?php endif ?>
 </div>
 

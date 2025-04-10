@@ -12,7 +12,6 @@ if (isset($_REQUEST['id'])) {
 	$cart->remove($id);
 	header('Location: meucarrinho.php');
 }
-	
 
  ?>
  <?php if (isset($_SESSION['id_user'])): ?>
@@ -63,7 +62,7 @@ if (isset($_REQUEST['id'])) {
 </section>
 	<br>
 	 	<span class="btn btn-light font-weight-bold"><p>Total: R$ <?php echo number_format($cart->getTotal(), 2,',','.'); ?> <button type="button" class="badge btn btn-success">Continuar</button></p>
-</span>
+		</span>
 	 
  </body>
  </html>
