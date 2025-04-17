@@ -48,7 +48,7 @@
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="user/leitura_de_dados.php?id_user=<?php echo $_SESSION['id']; error_reporting(0);
  ?>">Dados</a></li>
-    <li><a class="dropdown-item" href="meucarrinho.php">Carrinho <span class="material-symbols-outlined">
+    <li><a class="dropdown-item" href="meucarrinho_usuario.php">Carrinho <span class="material-symbols-outlined">
     shopping_cart
     </span></a></li>
     <li>

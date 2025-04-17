@@ -1,7 +1,10 @@
 <?php 
+// Carrinho temporário
+
 require "conexao.php";
 require "produto.php";
 require "cart.php"; 
+
 
 session_start();
 $cart = new Cart();
@@ -14,7 +17,6 @@ if (isset($_REQUEST['id'])) {
 }
 
  ?>
- <?php if (isset($_SESSION['id_user'])): ?>
  	
 
  <!DOCTYPE html>
@@ -27,7 +29,9 @@ if (isset($_REQUEST['id'])) {
 
 
  <section>
- 		<?php if (count($productsInCart) <= 0)  :?>
+ 
+ 		
+ 		<?php if (count($productsInCart) <= 0 )  :?>
  			Nenhum produto no carrinho
  		<?php endif; ?>
  		<?php foreach ($productsInCart as $product): ?>
@@ -45,7 +49,7 @@ if (isset($_REQUEST['id'])) {
 	 	<br>
 	 	<div class="btn-group d-flex justify-content-center" style="width:60%; position: relative; left: 20%;">
 
-	 	<a href="adicionando_itens.php?id=<?php echo $product->getId(); ?>"class="btn btn-success btn-lg p-1">+</a>
+	 	<a href="adicionando_itens.php?id=<?php echo $product->getId();?>"class="btn btn-success btn-lg p-1">+</a>
 
 		<input class="p-2" type="button" value="<?php echo $product->getQuantity(); ?>" >	 		
 	 		
@@ -66,4 +70,4 @@ if (isset($_REQUEST['id'])) {
 	 
  </body>
  </html>
-  <?php endif ?>
+

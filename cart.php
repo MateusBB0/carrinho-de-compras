@@ -31,6 +31,20 @@ class Cart{
 		}
 	}
 
+	// // Adicionar o Item no banco de dados
+	// public function AddQtdDataBase($userId,$id){
+	// 	global $conexao, $product;
+	// 	$update = "UPDATE carrinho SET quantidade = ?, total = ?  WHERE id_user = $userId AND id_produto = $id";
+	// $stmt = $conexao->__construct()->prepare($update);
+	// 	foreach ($_SESSION['cart']['products'] as $product) {
+    //     	$stmt->execute([
+    //         $product->getQuantity(),
+    //         $product->getPrice() * $product->getQuantity()]);
+    // 			}
+	// 	}
+
+		
+
 	public function RemoveQtdDataBase(){
 		
 	}
