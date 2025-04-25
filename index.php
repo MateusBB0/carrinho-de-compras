@@ -1,6 +1,7 @@
 <?php 
 require 'conexao.php';
 require 'cart.php';
+require 'cart_database.php';
 require 'produto.php';
 session_start();
 	
@@ -9,11 +10,10 @@ session_start();
 	$stmt = $conexao->__construct()->prepare($sql);
 	$stmt->execute();
 
- 
+ $cartdb = new CartDB();
 // Pegar o o id quando clicar no botão "add" e pegar seus dados e mandá-los ao meucarrinho.php
 	if (isset($_GET['id']) ) {
 if (isset($_SESSION['id_user']) ) {
-
 
 
 		$id = strip_tags($_GET['id']);
@@ -27,15 +27,18 @@ if (isset($_SESSION['id_user']) ) {
 					 $name = $itens['nome_produto'];
 					 $price = $itens['preco'];
 					 $img = $itens['img'];
-				 		
+				 			
+		
+
 				 	}
 
 					}
-				
+
+		
 			
 
 	$product = new Product();
-	error_reporting(0);
+	// error_reporting(0);
 	$product->setId($cod);
 	$product->setName($name);
 	$product->setPrice($price);
@@ -45,7 +48,7 @@ if (isset($_SESSION['id_user']) ) {
 
 	$cart = new Cart();
 	$cart->add($product);
-	$cart->AddCartDataBase($product->setId($cod), $_SESSION['id_user']);
+	$cartdb->AddCartDataBase($product, $_SESSION['id_user']);
 
 }else{
 	echo 
@@ -103,11 +106,7 @@ if (isset($_SESSION['id_user']) ) {
 	 		<span id="preco">R$<?php echo number_format($row['preco'], 2,',','.'); ?></span>
 	 		<div id='add_btn'>
 	 		<a href="?id=<?php 
-	 		if (isset($_SESSION['id_user'])){
-	 		
-	 		 echo($row['id']);
-	 		} 
-	 		?>" 
+	 			echo($row['id']);?>" 
 	 		 >Adicionar<ion-icon name="cart-outline"></ion-icon ></a>
 	 		</div>
 	 	</div>

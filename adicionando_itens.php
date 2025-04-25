@@ -10,15 +10,23 @@ $cartdb = new CartDB();
 
 $productsInCart = $cart->getCart();
 
-if (isset($_REQUEST['id'])) {
-	$id = strip_tags($_REQUEST['id']);
+
+if (isset($_GET['id'])) {
+	
+
+	if (isset($_SESSION['id_user'])) {	
+	$id = strip_tags($_GET['id']);
 	$cart->additionQtd($id);
 	$cartdb->AddQtdDataBase($_SESSION['id_user'], $id);
-	// header('Location: meucarrinho_usuario.php');
-
+	header('Location: meucarrinho_usuario.php');
+	}else{
+		echo "Usuário não identificado!!";
+	}
 }else{
 	echo "Error";
 }
+
+
 
 
 

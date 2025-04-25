@@ -45,10 +45,6 @@ class Cart{
 
 		
 
-	public function RemoveQtdDataBase(){
-		
-	}
-
 	public function add(Product $product){
 
 		$inCart = false;
